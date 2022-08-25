@@ -34,7 +34,9 @@ const Navbar: React.FC = ({}) => {
 			top={0}
 			left={0}
 			bg={fade(backgroundColor, 0.9)}
-			backdropFilter="saturate(180%) blur(5px)"
+			backdropFilter={
+				status === "authenticated" ? "saturate(180%) blur(5px)" : "none"
+			}
 			sx={{
 				"@supports not (backdrop-filter: none)": {
 					backdropFilter: "none",

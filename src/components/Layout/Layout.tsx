@@ -14,10 +14,9 @@ const Layout: React.FC<LayoutProps> = ({ children, title }) => {
 				maxW="container.md"
 				pt={{ base: 20, sm: 24 }}
 				pb={10}
-				minH={{
-					base: "calc(100vh - 26px)",
-					sm: "calc(100vh - 26px)",
-				}}
+				minH="calc(100vh - 26px)"
+				h="full"
+				position="relative"
 			>
 				{children}
 			</Container>
