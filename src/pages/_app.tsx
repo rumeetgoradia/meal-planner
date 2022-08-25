@@ -1,5 +1,8 @@
 // src/pages/_app.tsx
 import { Chakra } from "@/components/Chakra";
+import { Navbar } from "@/components/Navbar";
+import type { AppRouter } from "@/server/router";
+import "@/styles/globals.css";
 import theme, { Fonts } from "@/styles/theme";
 import { withTRPC } from "@trpc/next";
 import { SessionProvider } from "next-auth/react";
@@ -7,8 +10,6 @@ import { DefaultSeo } from "next-seo";
 import SeoProps from "next-seo.config";
 import type { AppType } from "next/dist/shared/lib/utils";
 import superjson from "superjson";
-import type { AppRouter } from "../server/router";
-import "../styles/globals.css";
 
 const MyApp: AppType = ({
 	Component,
@@ -19,6 +20,7 @@ const MyApp: AppType = ({
 			<DefaultSeo {...SeoProps} />
 			<Chakra cookies={pageProps.cookies} theme={theme}>
 				<Fonts />
+				<Navbar />
 				<Component {...pageProps} />
 			</Chakra>
 		</SessionProvider>
