@@ -26,7 +26,9 @@ const Navbar: React.FC = ({}) => {
 			justify="center"
 			w="full"
 			borderBottom="1px"
-			borderBottomColor="gray.700"
+			borderBottomColor={
+				status === "authenticated" ? "gray.700" : "transparent"
+			}
 			position="fixed"
 			zIndex="banner"
 			top={0}
@@ -50,7 +52,9 @@ const Navbar: React.FC = ({}) => {
 						<Anchor
 							fontWeight={300}
 							title={SITE_NAME}
-							fontSize={{ base: "2xl", sm: "3xl" }}
+							fontSize={
+								status === "authenticated" ? { base: "2xl", sm: "3xl" } : "4xl"
+							}
 							textDecoration="none !important"
 							_hover={{ transform: "scale(1.025)" }}
 							_focusVisible={{ transform: "scale(1.025)" }}

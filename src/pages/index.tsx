@@ -1,4 +1,5 @@
-import { Button, Container, Flex, Heading, Spinner } from "@chakra-ui/react";
+import { Layout } from "@/components/Layout";
+import { Button, Flex, Heading, Spinner } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import { signIn, useSession } from "next-auth/react";
 
@@ -7,25 +8,29 @@ const Home: NextPage = () => {
 
 	if (status === "loading") {
 		return (
-			<Container maxW="container.md" h="100vh">
+			<Layout>
 				<Flex w="full" h="full" justify="center" align="center">
 					<Spinner size="xl" />
 				</Flex>
-			</Container>
+			</Layout>
 		);
 	}
 
 	if (status === "unauthenticated") {
 		return (
-			<Container maxW="container.md" h="100vh">
+			<Layout>
 				<Flex w="full" h="full" justify="center" align="center">
 					<Button onClick={() => signIn("github")}>Sign In</Button>
 				</Flex>
-			</Container>
+			</Layout>
 		);
 	}
 
-	return <Heading>Good morning Baltimore!</Heading>;
+	return (
+		<Layout>
+			<Heading>Good morning Baltimore!</Heading>
+		</Layout>
+	);
 };
 
 export default Home;
